@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bai1
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Nhap x: ");
+            double x = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Nhap n: ");
+            int n = int.Parse(Console.ReadLine());
+
+            // Tính tổng S(x, n)
+            double sum = 0;
+            for (int i = 0; i <= n; i++)
+            {
+                sum += Math.Pow(x, i);
+            }
+            Console.WriteLine("Tong cua day so tu {0} đến x^{1} = {2}", x, n, sum);
+        }
+    }
+}
