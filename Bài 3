@@ -1,0 +1,99 @@
+using Bài_3;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bài_3
+{
+    public class MyString
+    {
+        private string inputString;
+
+        public MyString(string input)
+        {
+            inputString = input;
+        }
+
+        public int Total()
+        {
+            int sum = 0;
+            foreach (char c in inputString)
+            {
+                sum += (int)c;
+            }
+            return sum;
+        }
+
+        public int UpperTotal()
+        {
+            int sum = 0;
+            foreach (char c in inputString)
+            {
+                if (char.IsUpper(c))
+                {
+                    sum += (int)c;
+                }
+            }
+            return sum;
+        }
+        public string LongestSubstring(string s1, string s2)
+        {
+            int[,] matrix = new int[s1.Length + 1, s2.Length + 1];
+            int maxLength = 0;
+            int endIndex = 0;
+
+            for (int i = 1; i <= s1.Length; i++)
+            {
+                for (int j = 1; j <= s2.Length; j++)
+                {
+                    if (s1[i - 1] == s2[j - 1])
+                    {
+                        matrix[i, j] = matrix[i - 1, j - 1] + 1;
+                        if (matrix[i, j] > maxLength)
+                        {
+                            maxLength = matrix[i, j];
+                            endIndex = i - 1;
+                        }
+                    }
+                    else
+                    {
+                        matrix[i, j] = 0;
+                    }
+                }
+            }
+
+            if (maxLength == 0)
+            {
+                return string.Empty;
+            }
+
+            return s1.Substring(endIndex - maxLength + 1, maxLength);
+        }
+    }
+}
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Nhap chuoi ki tu: ");
+            string input = Console.ReadLine();
+
+            MyString myString = new MyString(input);
+
+            int tong = myString.Total();
+            Console.WriteLine("Tong bang ma : " + tong);
+
+            int tonginhoa = myString.UpperTotal();
+            Console.WriteLine("Tong bang ma cac ki tu in hoa: " + tonginhoa);
+
+            string s1 = "Hello";
+            string s2 = "Developer";
+            string longestCommonSubstring = myString.LongestSubstring(s1, s2);
+            Console.WriteLine("Longest common substring: " + longestCommonSubstring);
+            Console.ReadKey();  
+    }
+    
+}
