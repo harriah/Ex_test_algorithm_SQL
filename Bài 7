@@ -1,0 +1,163 @@
+using System;
+using System.Collections.Generic;
+public class Student
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public double Math { get; set; }
+    public double Physical { get; set; }
+    public double Chemistry { get; set; }
+    public double Avg { get; private set; }
+    public string Rank { get; private set; }
+
+    public Student(string name, int age, double math, double physical, double chemistry)
+    {
+        Name = name;
+        Age = age;
+        Math = math;
+        Physical = physical;
+        Chemistry = chemistry;
+        Avg = Mediumscore(); 
+        Rank = Ranking(); 
+    }
+
+    public double Mediumscore()
+    {
+        double avg = (Math + Physical + Chemistry) / 3;
+        Avg = avg; 
+        return avg; 
+    }
+
+    public string Ranking()
+    {
+        string rank = ""; 
+                          
+        if (Avg >= 8.0)
+        {
+            rank = "Gioi"; 
+        }
+        else if (Avg >= 6.5 && Avg < 8.0)
+        {
+            rank = "Kha"; 
+        }
+        else if (Avg >= 5.0 && Avg < 6.5)
+        {
+            rank = "Tb"; 
+        }
+        else
+        {
+            rank = "Yeu"; 
+        }
+        Rank = rank; 
+        return rank; 
+    }
+    public class ManagerStudent
+    {
+        public List<Student> Students { get; set; }
+
+        public ManagerStudent()
+        {
+            Students = new List<Student>(); 
+        }
+        public void AddStudent(Student student)
+        {
+            Students.Add(student); 
+        }
+
+
+        public Student FindStudent(string name)
+        {
+
+            foreach (Student student in Students)
+            {
+                if (student.Name == name)
+                {
+                    return student; 
+                }
+            }
+            return null; 
+        }
+        public List<Student> smartSearch(string content)
+        {
+            List<Student> searchResults = new List<Student>();
+
+            foreach (Student student in Students)
+            {
+                if (student.Name == content)
+                {
+                    student.Rank = "10"; 
+                    searchResults.Add(student);
+                }
+            }
+
+            return searchResults;
+        }
+        static void Main(string[] args)
+        {
+            ManagerStudent manager = new ManagerStudent();
+
+            Student s1 = new Student("An", 18, 9.0, 8.5, 7.5);
+            Student s2 = new Student("Binh", 17, 6.0, 5.0, 4.0);
+            Student s3 = new Student("Chau", 19, 7.5, 8.0, 6.5);
+            Student s4 = new Student("Dung", 18, 5.5, 6.0, 5.0);
+            Student s5 = new Student("Hoa", 17, 8.5, 9.0, 8.0);
+            Student s6 = new Student("Lan", 19, 4.0, 3.5, 4.5);
+            Student s7 = new Student("Minh", 18, 7.0, 6.5, 7.5);
+            Student s8 = new Student("Nam", 17, 6.5, 7.0, 6.0);
+
+            manager.AddStudent(s1);
+            manager.AddStudent(s2);
+            manager.AddStudent(s3);
+            manager.AddStudent(s4);
+            manager.AddStudent(s5);
+            manager.AddStudent(s6);
+            manager.AddStudent(s7);
+            manager.AddStudent(s8);
+
+            foreach (Student student in manager.Students)
+            {
+                Console.WriteLine($"Name: {student.Name}, Age: {student.Age}, Math: {student.Math}, Physical: {student.Physical}, Chemistry: {student.Chemistry}, Avg: {student.Avg}, Rank: {student.Rank}");
+            }
+
+            // Từ khóa tìm kiếm
+            string searchKeyword = "An";
+
+            List<Student> searchResults = smartSearch(searchKeyword, manager.Students);
+
+            // Hiển thị kết quả tìm kiếm
+            if (searchResults.Count > 0)
+            {
+                Console.WriteLine("Ket qua tim kiem:");
+                foreach (Student student in searchResults)
+                {
+                    Console.WriteLine($"Ten: {student.Name}, Diem trung binh: {student.Avg}, Xep loai: {student.Rank}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Khong tim thay.");
+            }
+
+            Console.ReadLine();
+        }
+
+        public static List<Student> smartSearch(string content, List<Student> students)
+        {
+            List<Student> searchResults = new List<Student>();
+
+            foreach (Student student in students)
+            {
+                if (student.Name.Equals(content, StringComparison.OrdinalIgnoreCase))
+                {
+                    student.Rank = "10"; // Gán rank cao nhất là "10" cho kết quả giống nhau
+                    searchResults.Add(student);
+                }
+            }
+
+            return searchResults;           
+        }
+    }
+    }
+
+
+
