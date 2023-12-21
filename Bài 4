@@ -1,0 +1,120 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bài_4
+{
+    public class ArrIntManager
+    {
+        private int[] arrInt;
+
+        public ArrIntManager(int[] arr)
+        {
+            arrInt = arr;
+        }
+
+        public int GetSumInArray()
+        {
+            return arrInt.Sum();
+        }
+        public int GetSumOfPrimesInArray()
+        {
+            int sum = 0;
+            foreach (int num in arrInt)
+            {
+                if (CheckPrime(num))
+                {
+                    sum += num;
+                }
+            }
+            return sum;
+        }
+
+        public void PrintTriplets()
+        {
+            for (int i = 0; i < arrInt.Length - 2; i++)
+            {
+                if (arrInt[i] + arrInt[i + 1] == arrInt[i + 2])
+                {
+                    Console.WriteLine($"{arrInt[i]}, {arrInt[i + 1]}, {arrInt[i + 2]}");
+                }
+            }
+        }
+
+        public void PrintLongestSubarray(int targetSum)
+        {
+            int maxLength = 0;
+            int endIndex = -1;
+
+            for (int i = 0; i < arrInt.Length; i++)
+            {
+                int sum = 0;
+                for (int j = i; j < arrInt.Length; j++)
+                {
+                    sum += arrInt[j];
+                    if (sum == targetSum && j - i + 1 > maxLength)
+                    {
+                        maxLength = j - i + 1;
+                        endIndex = j;
+                    }
+                }
+            }
+
+            if (endIndex != -1)
+            {
+                Console.WriteLine("Longest subarray " + targetSum + ":");
+                for (int i = endIndex - maxLength + 1; i <= endIndex; i++)
+                {
+                    Console.Write(arrInt[i] + " ");
+                }
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("No subarray " + targetSum + " found.");
+            }
+        }
+
+        private bool CheckPrime(int number)
+        {
+            if (number < 2)
+            {
+                return false;
+            }
+
+            for (int i = 2; i <= Math.Sqrt(number); i++)
+            {
+                if (number % i == 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = { 1, 2, 3, 5, 4, 1, 3, 4, 5, 4, 5, 9, 7, 0, 11, 13, 10, 23 };
+
+            ArrIntManager arrIntManager = new ArrIntManager(arr);
+            
+            int sum = arrIntManager.GetSumInArray();
+            Console.WriteLine("Sum: " + sum);
+            
+            int sumOfPrimes = arrIntManager.GetSumOfPrimesInArray();
+            Console.WriteLine("Sum of primes: " + sumOfPrimes);
+
+            Console.WriteLine("Consecutive triplets:");
+            arrIntManager.PrintTriplets();
+
+            int targetSum = 18;
+            arrIntManager.PrintLongestSubarray(targetSum);
+        }
+    }
+    
+}
