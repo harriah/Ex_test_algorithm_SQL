@@ -1,0 +1,20 @@
+D:\Bai1\Bài 8 FE\obj\Debug\net8.0-windows\MainWindow.g.cs
+D:\Bai1\Bài 8 FE\obj\Debug\net8.0-windows\App.g.cs
+D:\Bai1\Bài 8 FE\obj\Debug\net8.0-windows\Bài 8 FE_MarkupCompile.cache
+D:\Bai1\Bài 8 FE\obj\Debug\net8.0-windows\Bài 8 FE_MarkupCompile.lref
+D:\Bai1\Bài 8 FE\bin\Debug\net8.0-windows\Bài 8 FE.exe
+D:\Bai1\Bài 8 FE\bin\Debug\net8.0-windows\Bài 8 FE.deps.json
+D:\Bai1\Bài 8 FE\bin\Debug\net8.0-windows\Bài 8 FE.runtimeconfig.json
+D:\Bai1\Bài 8 FE\bin\Debug\net8.0-windows\Bài 8 FE.dll
+D:\Bai1\Bài 8 FE\bin\Debug\net8.0-windows\Bài 8 FE.pdb
+D:\Bai1\Bài 8 FE\obj\Debug\net8.0-windows\MainWindow.baml
+D:\Bai1\Bài 8 FE\obj\Debug\net8.0-windows\Bài 8 FE.g.resources
+D:\Bai1\Bài 8 FE\obj\Debug\net8.0-windows\Bài 8 FE.GeneratedMSBuildEditorConfig.editorconfig
+D:\Bai1\Bài 8 FE\obj\Debug\net8.0-windows\Bài 8 FE.AssemblyInfoInputs.cache
+D:\Bai1\Bài 8 FE\obj\Debug\net8.0-windows\Bài 8 FE.AssemblyInfo.cs
+D:\Bai1\Bài 8 FE\obj\Debug\net8.0-windows\Bài 8 FE.csproj.CoreCompileInputs.cache
+D:\Bai1\Bài 8 FE\obj\Debug\net8.0-windows\Bài 8 FE.dll
+D:\Bai1\Bài 8 FE\obj\Debug\net8.0-windows\refint\Bài 8 FE.dll
+D:\Bai1\Bài 8 FE\obj\Debug\net8.0-windows\Bài 8 FE.pdb
+D:\Bai1\Bài 8 FE\obj\Debug\net8.0-windows\Bài 8 FE.genruntimeconfig.cache
+D:\Bai1\Bài 8 FE\obj\Debug\net8.0-windows\ref\Bài 8 FE.dll
