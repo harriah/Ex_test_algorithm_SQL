@@ -1,0 +1,10 @@
+D:\Bai1\Baii8FE2\bin\Debug\Baii8FE2.exe.config
+D:\Bai1\Baii8FE2\bin\Debug\Baii8FE2.exe
+D:\Bai1\Baii8FE2\bin\Debug\Baii8FE2.pdb
+D:\Bai1\Baii8FE2\obj\Debug\Baii8FE2.csproj.AssemblyReference.cache
+D:\Bai1\Baii8FE2\obj\Debug\Baii8FE2.LoginForm.resources
+D:\Bai1\Baii8FE2\obj\Debug\Baii8FE2.Properties.Resources.resources
+D:\Bai1\Baii8FE2\obj\Debug\Baii8FE2.csproj.GenerateResource.cache
+D:\Bai1\Baii8FE2\obj\Debug\Baii8FE2.csproj.CoreCompileInputs.cache
+D:\Bai1\Baii8FE2\obj\Debug\Baii8FE2.exe
+D:\Bai1\Baii8FE2\obj\Debug\Baii8FE2.pdb
