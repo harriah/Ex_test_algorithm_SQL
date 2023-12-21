@@ -1,0 +1,59 @@
+using Bài_5;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bài_5
+{
+    public class ManagerInt
+    {
+        public void SumK(int[] m, int n)
+        {
+            FindArrays(m, n, 0, new int[m.Length], 0, 0);
+        }
+
+        private void FindArrays(int[] m, int target, int startIndex, int[] current, int currentIndex, int currentSum)
+        {
+            if (currentSum == target)
+            {
+                PrintArrays(current, currentIndex);
+            }
+
+            if (startIndex == m.Length)
+            {
+                return;
+            }
+
+            for (int i = startIndex; i < m.Length; i++)
+            {
+                current[currentIndex] = m[i];
+                FindArrays(m, target, i + 1, current, currentIndex + 1, currentSum + m[i]);
+            }
+        }
+
+        private void PrintArrays(int[] array, int endIndex)
+        {
+            for (int i = 0; i < endIndex; i++)
+            {
+                Console.Write(array[i] + " ");
+            }
+
+            Console.WriteLine();
+        }
+    }
+}
+
+internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] m = { 1, 4, 6, 3, 2, 2, 8 };
+            int n = 10;
+
+            ManagerInt manager = new ManagerInt();
+            manager.SumK(m, n);
+        }
+    }
+
